@@ -170,7 +170,7 @@ class VideoTweet(object):
     req = requests.post(url=POST_TWEET_URL, data=request_data, auth=oauth)
     print(req.json())
 
-#If file is a jpg the loop needs to restart
+
 
 
 def download(path, title, mediaUrl, iterate=False, noLayerPath=None):
@@ -182,7 +182,6 @@ def download(path, title, mediaUrl, iterate=False, noLayerPath=None):
         print("Layer: "+ path)
         
 
-    # Download the video without overlay
         if iterate == True:
             print("\033[92m✔ Downloading media with no overlay...\033[0m",end="", flush=True)
             urllib.request.urlretrieve(mediaUrl.replace("embedded", "media"), noLayerPath)        
@@ -255,7 +254,7 @@ def main():
     start(mapUrl)
     time.sleep(180)
     driver.close()
-    list_of_files = glob.glob('/filepath/*') # * means all if need specific format then *.csv
+    list_of_files = glob.glob('/filepath/*') 
     latest_file = max(list_of_files, key=os.path.getctime)
     mp4File =  latest_file
     videoTweet = VideoTweet(mp4File)
